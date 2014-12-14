@@ -1,4 +1,4 @@
-require_relative 'common'
+require File.expand_path("../common", __FILE__)
 require 'thor'
 
 class FormattedTable
