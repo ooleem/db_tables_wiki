@@ -55,13 +55,13 @@ class Db < Thor
     # Print table of content
     puts "# #{prefix}\n" unless prefix.empty?
     tables.each do |table_name|
-      table_name = table_name.sub(/\./, "")
+      table_name = table_name.sub(/\./, "") # to fix redshift adapter bug
       puts "- [#{table_name}](##{prefix}#{table_name})\n"
     end
     puts ""
 
     tables.each do |table_name|
-      table_name = table_name.sub(/\./, "")
+      table_name = table_name.sub(/\./, "") # to fix redshift adapter bug
       puts FormattedTable.new(table_name: table_name, prefix: prefix)
     end
   end
